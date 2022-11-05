@@ -151,6 +151,10 @@ int main() {
     auto end = steady_clock::now();
     auto result = duration_cast<nanoseconds>(end - start);
     cout << "Время: " << result.count() << " ns";
+    cout << "\n\n\tменюшка:" << "\n 1 и 2 - создать массив и отсортировать его различными сортировками" <<
+         "\n 3 - найти максимальный и минимальный элемент массива\n 4 - найти среднее значение макс и мин значений в отсорт и неотсорт массивах, индексы элементов, равных этому значению, их количество" <<
+         "\n 5 - найти количество элементов, меньших введённого числа\n 6 - найти количество элементов, больших введённого числа" <<
+         "\n 7 - найти введённое число в массиве\n 8 - поменять местами элементы массива";
 
     int p, YorN = 1;
 
@@ -158,13 +162,13 @@ int main() {
     generate_array(array, sortedArray);
 
     while (YorN == 1) {
-        cout << "\n\nВведи номер пункта, который нужно запустить: ";
+        cout << "\n\n Введи номер пункта, который нужно запустить: " ;
         cin >> p;
         switch (p) {
             case 1:
             case 2: {
                 cout << "\n\n(это пункты 1 и 2)";
-                cout << "\n\nВходной массив:\n";
+                cout << "\n\n Входной массив:\n";
                 print_array(array);
 
                 cout << "\n\n\tBubble sort" << endl;
@@ -172,8 +176,8 @@ int main() {
                 bubble_sort(sortedArray);
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "Время: " << result.count() << " ns";
-                cout << "\nОтсортированный массив:\n";
+                cout << " Время: " << result.count() << " ns";
+                cout << "\n Отсортированный массив:\n";
                 print_sortedArray(array, sortedArray);
 
                 cout << "\n\n\tShaker sort" << endl;
@@ -181,8 +185,8 @@ int main() {
                 shaker_sort(sortedArray);
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "Время: " << result.count() << " ns";
-                cout << "\nОтсортированный массив:\n";
+                cout << " Время: " << result.count() << " ns";
+                cout << "\n Отсортированный массив:\n";
                 print_sortedArray(array, sortedArray);
 
                 cout << "\n\n\tComb sort" << endl;
@@ -190,8 +194,8 @@ int main() {
                 comb_sort(sortedArray);
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "Время: " << result.count() << " ns";
-                cout << "\nОтсортированный массив:\n";
+                cout << " Время: " << result.count() << " ns";
+                cout << "\n Отсортированный массив:\n";
                 print_sortedArray(array, sortedArray);
 
                 cout << "\n\n\tInsert sort" << endl;
@@ -199,8 +203,8 @@ int main() {
                 insert_sort(sortedArray);
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "Время: " << result.count() << " ns";
-                cout << "\nОтсортированный массив:\n";
+                cout << " Время: " << result.count() << " ns";
+                cout << "\n Отсортированный массив:\n";
                 print_sortedArray(array, sortedArray);
 
                 cout << "\n\n\tQuick sort" << endl;
@@ -208,8 +212,8 @@ int main() {
                 quicksort(sortedArray, N - 1, 0);
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "Время: " << result.count() << " ns";
-                cout << "\nОтсортированный массив:\n";
+                cout << " Время: " << result.count() << " ns";
+                cout << "\n Отсортированный массив:\n";
                 print_sortedArray1(sortedArray);
                 }break;
 
@@ -223,8 +227,8 @@ int main() {
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
                 cout << endl;
-                cout << "\nМаксимальный элемент: " << max1 << "\nМинимальный элемент: " << min1;
-                cout << "\nВремя поиска элементов в неотсортированном массиве: " << result.count() << " ns";
+                cout << "\n Максимальный элемент: " << max1 << "\n Минимальный элемент: " << min1;
+                cout << "\n Время поиска элементов в неотсортированном массиве: " << result.count() << " ns";
 
                 insert_sort(sortedArray);
                 start = steady_clock::now();
@@ -232,7 +236,7 @@ int main() {
                 int min2 = sortedArray[N - 1];
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "\nВремя поиска элементов в отсортированном массиве: " << result.count() << " ns";
+                cout << "\n Время поиска элементов в отсортированном массиве: " << result.count() << " ns";
                 }break;
 
             case 4: {
@@ -244,7 +248,7 @@ int main() {
                     min1 = array[i] < min1 ? array[i] : min1;
                 }
                 sredn = (max1 - min1) / 2;
-                cout << "\n\tНеотсортированный массив\n" << "Среднее значение = " << sredn << "\n" << "Индексы элементов, равных среднему между макс и мин элементами: ";
+                cout << "\n\tНеотсортированный массив\n" << " Среднее значение = " << sredn << "\n" << " Индексы элементов, равных среднему между макс и мин элементами: ";
                 start = steady_clock::now();
                 for (int i = 0; i < N; ++i) {
                     if (array[i] == sredn) {
@@ -254,12 +258,12 @@ int main() {
                 }
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "\nКоличество таких элементов: " << cou;
-                cout << "\nВремя: " << result.count() << " ns";
+                cout << "\n Количество таких элементов: " << cou;
+                cout << "\n Время: " << result.count() << " ns";
 
                 cou = 0;
                 sredn = (sortedArray[N-1] - sortedArray[0]) / 2;
-                cout << "\n\n\tOтсортированный массив\n" << "Среднее значение = " << sredn << "\n" << "Индексы элементов, равных среднему между макс и мин элементами: ";
+                cout << "\n\n\tOтсортированный массив\n" << " Среднее значение = " << sredn << "\n" << " Индексы элементов, равных среднему между макс и мин элементами: ";
                 start = steady_clock::now();
                 for (int i = 0; i < N; ++i) {
                     if (sortedArray[i] == sredn) {
@@ -269,14 +273,14 @@ int main() {
                 }
                 end = steady_clock::now();
                 result = duration_cast<nanoseconds>(end - start);
-                cout << "\nКоличество таких элементов: " << cou;
-                cout << "\nВремя: " << result.count() << " ns";
+                cout << "\n Количество таких элементов: " << cou;
+                cout << "\n Время: " << result.count() << " ns";
                 }break;
 
                 case 5: {
                     insert_sort(sortedArray);
                     int a, cou = 0;
-                    cout << "\nВведи число, чтобы узнать, сколько элементов в массиве меньше него: ";
+                    cout << "\n Введи число, чтобы узнать, сколько элементов в массиве меньше него: ";
                     cin >> a;
                     start = steady_clock::now();
                     for (int i = 0; i < N; i++) {
@@ -287,14 +291,14 @@ int main() {
                     }
                     end = steady_clock::now();
                     result = duration_cast<nanoseconds>(end - start);
-                    cout << "В массиве " << cou << " элементов, которые меньше, чем " << a;
-                    cout << "\nВремя: " << result.count() << " ns";
+                    cout << " В массиве " << cou << " элементов, которые меньше, чем " << a;
+                    cout << "\n Время: " << result.count() << " ns";
                 } break;
 
                 case 6: {
                     insert_sort(sortedArray);
                     int b, cou = 0;
-                    cout << "\nВведи число, чтобы узнать, сколько элементов в массиве больше него: ";
+                    cout << "\n Введи число, чтобы узнать, сколько элементов в массиве больше него: ";
                     cin >> b;
                     start = steady_clock::now();
                     for (int i = N; i > 0; i--) {
@@ -305,70 +309,50 @@ int main() {
                     }
                     end = steady_clock::now();
                     result = duration_cast<nanoseconds>(end - start);
-                    cout << "В массиве " << cou << " элементов, которые больше, чем " << b;
-                    cout << "\nВремя: " << result.count() << " ns";
+                    cout << " В массиве " << cou << " элементов, которые больше, чем " << b;
+                    cout << "\n Время: " << result.count() << " ns";
                 } break;
 
                 case 7: {
                     insert_sort(sortedArray);
                     int x, ind;
-                    cout << "Введи число, которое хочешь найти в массиве: ";
+                    cout << " Введи число, которое хочешь найти в массиве: ";
                     cin >> x;
                     start = steady_clock::now();
                     ind = linear_search(sortedArray, x);
                     end = steady_clock::now();
                     result = duration_cast<nanoseconds>(end - start);
                     if (ind == -1)
-                        cout << "\nТакого элемента в массиве нет";
+                        cout << "\n Такого элемента в массиве нет";
                     if (ind != -1)
-                        cout << "\nИндекс числа " << x << " в отсортированном массиве: " << ind;
-                    cout << "\nВремя выполнения перебора: " << result.count() << " ns";
+                        cout << "\n Индекс числа " << x << " в отсортированном массиве: " << ind;
+                    cout << "\n Время выполнения перебора: " << result.count() << " ns";
 
                     start = steady_clock::now();
                     binary_search(sortedArray, 0, N - 1, x);
                     end = steady_clock::now();
                     result = duration_cast<nanoseconds>(end - start);
-                    cout << "\nВремя выполнения бинарного поиска: " << result.count() << " ns";
+                    cout << "\n Время выполнения бинарного поиска: " << result.count() << " ns";
                 } break;
 
                 case 8: {
                     insert_sort(sortedArray);
-                    cout << "\nОтсортированный массив:" << endl;
+                    cout << "\n Отсортированный массив:" << endl;
                     print_sortedArray1(sortedArray);
                     int elem1, elem2;
-                    cout << "\n\nВведи номера элементов (индексы) массива, которые нужно поменять местами: ";
+                    cout << "\n\n Введи номера элементов (индексы) массива, которые нужно поменять местами: ";
                     cin >> elem1 >> elem2;
                     start = steady_clock::now();
                     swap(sortedArray[elem1], sortedArray[elem2]);
                     end = steady_clock::now();
                     result = duration_cast<nanoseconds>(end - start);
-                    cout << "\nИзменённый массив:" << endl;
+                    cout << "\n Изменённый массив:" << endl;
                     print_sortedArray1(sortedArray);
-                    cout << "\nВремя: " << result.count() << " ns";
+                    cout << "\n Время: " << result.count() << " ns";
                 } break;
         }
-        cout << "\n\nПродолжить выполнение? (1 - да, 0 - нет)" << endl;
+        cout << "\n\n Продолжить выполнение? (1 - да, 0 - нет)" << endl;
         cin >> YorN;
     }
-
-/*    cout << "\n\n\tQuick sort" << endl;
-    start = steady_clock::now();
-    quicksort(sortedArray, 0, N - 1);
-    end = steady_clock::now();
-    result = duration_cast<nanoseconds>(end - start);
-    cout << "Время: " << result.count() << " ns";
-    cout << "\nОтсортированный массив:\n";
-    print_sortedArray(array, sortedArray);
-
-
-    start = steady_clock::now();
-    end = steady_clock::now();
-    result = duration_cast<nanoseconds>(end - start);
-    cout << "\nВремя: " << result.count() << " ns";
-
-    */
-
-
-
     return 0;
 }
